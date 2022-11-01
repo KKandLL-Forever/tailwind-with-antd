@@ -1,9 +1,8 @@
 import{ useState } from 'react';
-import { ConfigProvider, DatePicker, Button } from 'antd'
+import { ConfigProvider, DatePicker, Button, Modal } from 'antd'
 import zhCN from 'antd/lib/locale/zh_CN';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
-import 'antd/dist/antd.css';
 import './App.css';
 
 moment.locale('zh-cn');
@@ -18,10 +17,15 @@ function App() {
       <ConfigProvider locale={zhCN}>
         <div className="border rounded-md p-2">
           <DatePicker onChange={handleChange} />
-          <div style={{ marginTop: 16 }}>
+          <div>
             当前日期：{date ? date.format('YYYY年MM月DD日') : '未选择'}
           </div>
-          <Button>Default Button</Button>
+          <Button className='text-lg'>Default Button</Button>
+          <Modal  title="Basic Modal" open={false}>
+            <p>Some contents...</p>
+            <p>Some contents...</p>
+            <p>Some contents...</p>
+          </Modal>
         </div>
       </ConfigProvider>
     </div>
